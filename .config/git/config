@@ -1,0 +1,85 @@
+[user]
+    name = Loïc Boiteux
+    email = loicboiteux@protonmail.com
+    #signingkey = 
+
+[commit]
+    #gpgSign = true
+    template = ~/.config/git/template
+
+[pull]
+    rebase = false
+
+# TODO: Read and setup the following settings
+
+
+#[core]
+#    autocrlf = input  # keep newlines as in input
+#    compression = 9  # trade cpu for network
+#    fsync = none
+#    whitespace = error  # threat incorrect whitespace as errors
+#
+#[advice]  # enable advices
+#    addEmptyPathspec = true
+#    pushNonFastForward = true
+#    statusHints = true
+#
+#[blame]
+#    coloring = highlightRecent
+#    date = relative
+#
+#[diff]
+#    context = 3  # less context in diffs
+#    renames = copies  # detect copies as renames in diffs
+#    interHunkContext = 10  # merge near hunks in diffs
+#
+#
+#[log]
+#    abbrevCommit = true  # short commits
+#    graphColors = blue,yellow,cyan,magenta,green,red
+#
+#[status]
+#    branch = true
+#    short = true
+#    showStash = true
+#    showUntrackedFiles = all  # show individual untracked files
+#
+#[pager]
+#    branch = false  # no need to use pager for git branch
+#    diff = diff-so-fancy | $PAGER  # diff-so-fancy as diff pager
+#
+#[push]
+#    autoSetupRemote = true  # easier to push new branches
+#    default = current  # push only current branch by default
+#    followTags = true  # push also tags
+#    gpgSign = false  # my remotes doesn't support sign pushes
+#
+#[submodule]
+#    fetchJobs = 16
+#
+#[rebase]
+#    autoStash = true
+#
+## Colors
+#[color "blame"]
+#    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+#
+#[color "branch"]
+#    current  = magenta
+#    local    = default
+#    remote   = yellow
+#    upstream = green
+#    plain    = blue
+#
+#[color "diff"]
+#    meta       = black bold
+#    frag       = magenta
+#    context    = white
+#    whitespace = yellow reverse
+#
+## URL shortcuts
+#[url "git@github.com:"]
+#    insteadOf = "gh:"
+#
+#[url "git@gitlab.com:"]
+#    insteadOf = "gl:"

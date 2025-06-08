@@ -6,14 +6,10 @@
     "width": 65,           // Width in characters (for image logos)
     "height": 35,          // Height in characters (for image logos)
     "padding": {
-        "top": 0,          // Top padding
-        "left": 0,         // Left padding
-        "right": 2         // Right padding
-    },
-    "color": {             // Override logo colors
-        "1": "blue",
-        "2": "green"
-    }
+      "top": 0,          // Top padding
+      "left": 0,         // Left padding
+      "right": 2         // Right padding
+    } 
   },
 
   "modules": [
@@ -28,22 +24,22 @@
     "display",
     "de",
     "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "cursor",
+    //"wmtheme",
+    //"theme",
+    //"icons",
+    //"font",
+    //"cursor",
     "terminal",
-    "terminalfont",
+    //"terminalfont",
     "cpu",
     "gpu",
     "memory",
     "swap",
     "disk",
-    "localip",
-    "battery",
-    "poweradapter",
-    "locale",
+    //"localip",
+    //"battery",
+    //"poweradapter",
+    //"locale",
     "break",
     "colors"
   ]
