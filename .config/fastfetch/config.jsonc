@@ -9,7 +9,7 @@
       "top": 0,          // Top padding
       "left": 0,         // Left padding
       "right": 2         // Right padding
-    } 
+    }
   },
 
   "modules": [
@@ -36,10 +36,10 @@
     "memory",
     "swap",
     "disk",
-    //"localip",
-    //"battery",
-    //"poweradapter",
-    //"locale",
+    "localip",
+    "battery",
+    "poweradapter",
+    "locale",
     "break",
     "colors"
   ]
