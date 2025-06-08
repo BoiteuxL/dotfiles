@@ -1,0 +1,13 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "window.zoomLevel": 1,
+    "editor.overtypeCursorStyle": "underline",
+    "editor.cursorBlinking": "smooth",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "none",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "security.workspace.trust.untrustedFiles": "open"
+}
