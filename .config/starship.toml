@@ -1,0 +1,157 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+# Left side
+format = """$username$directory $character"""
+
+# Right side
+right_format = """$nodejs$deno$python$c$cpp$go$rust$go$java$git_branch$git_state$git_status"""
+
+
+
+
+##########################################################
+######################### Prompt #########################
+##########################################################
+
+[os]
+format = "$symbol"
+disabled = true
+
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = '󰣇'
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+OpenCloudOS = ''
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[directory]
+format = " in [$path]($style)"
+style = "fg:#89b4fa"
+truncate_to_repo=true
+
+[username]
+format = "[$user]($style)"
+style_root = "#cba6f7"
+style_user = "#f2cdcd"
+show_always = true
+
+[time]
+format = "[$time](#ffff00)"
+time_format = "%a, %I:%M %p"
+disabled = true
+
+[character]
+success_symbol = "[❯](#a6e3a1)"
+error_symbol = "[❯](#f38ba8)"
+
+
+
+
+##########################################################
+########################### Env ##########################
+##########################################################
+
+[nodejs]
+disabled = false
+detect_extensions = []
+symbol = ""
+format = "[ ${symbol} NodeJS ${version}]($style)"
+style = "#a6e3a1"
+
+[deno]
+disabled = false
+detect_extensions = []
+symbol = ""
+format = "[ ${symbol} DenoJS ${version}]($style)"
+style = "#cdd6f4"
+
+[python]
+disabled = false
+symbol = ""
+format = "[ ${symbol}Python ${version}]($style)"
+style = "#f9e2af"
+
+[java]
+disabled = false
+symbol = ""
+format = "[ ${symbol}Java ${version}]($style)"
+style = "#fab387"
+
+[rust]
+disabled = false
+symbol = ""
+format = "[ ${symbol}Rust ${version}]($style)"
+style = "#eba0ac"
+
+[c]
+disabled = false
+format = "[ ${symbol}with ${name}${version}]($style)"
+style = "#b4befe"
+
+[cpp]
+disabled = false
+format = "[ ${symbol}with ${name}${version}]($style)"
+style = "#89b4fa"
+
+
+
+
+##########################################################
+########################### Git ##########################
+##########################################################
+
+[git_branch]
+format = "[ $symbol $branch ]($style) "
+symbol = ""
+style = "#f2cdcd"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[CHERRY PICKING](#f38ba8)'
+merge = '[MERGE](#94e2d5)'
+rebase = '[REBASE](#94e2d5)'
+revert = '[REVERT](#f9e2af)'
+
+[git_status]
+format = "$ahead_behind$all_status"
+renamed = "[$count»](#89dceb)"
+conflicted = '[C](#f38ba)'
+up_to_date = ''
+untracked = '[$count?](#f5e0dc)'
+stashed = '[$count$](#b4befe)'
+modified = '[$count!](#f9e2af)'
+staged = '[$count+](#a6e3a1)'
+deleted = '[$count×](#f38ba8)'
+
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+

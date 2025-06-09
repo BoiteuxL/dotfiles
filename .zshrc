@@ -57,16 +57,14 @@ function plugin-load {
 
 # list of github repos of plugins
 repos=(
-	romkatv/powerlevel10k
-
+	#romkatv/powerlevel10k
 	romkatv/zsh-defer
 	zsh-users/zsh-autosuggestions
 	zdharma-continuum/fast-syntax-highlighting
 )
 plugin-load $repos
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(starship init zsh)"
 
 # Startup
 #fastfetch
