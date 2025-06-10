@@ -68,3 +68,10 @@ eval "$(starship init zsh)"
 
 # Startup
 #fastfetch
+
+
+# Binds
+#bindkey '^[[1;5C' emacs-forward-word
+#bindkey '^[^[[D' emacs-backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
