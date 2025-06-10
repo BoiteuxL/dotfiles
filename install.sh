@@ -3,7 +3,7 @@
 # ZSH
 
 echo "Installing ZSH with Starship..."
-sudo pacman -S zsh starship stow --noconfirm
+sudo dnf install zsh starship stow --noconfirm
 
 curl -sS https://starship.rs/install.sh | sh
 
@@ -30,4 +30,3 @@ stow .
 
 
 echo "Done!"
-clear

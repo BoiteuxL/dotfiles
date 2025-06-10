@@ -1,15 +1,15 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+unsetopt BEEP
+fastfetch
+
 
 
 # History
-export HISTSIZE=100000
-export SAVEHIST=20000
-export HISTFILE="$HOME/.cache/zsh/history"
+export HISTSIZE=5000
+export HISTFILE=~/.zsh_history
+export SAVEHIST=$HISTSIZE
+export HISTDUP=erase
+
+setopt appendhistory
 
 setopt hist_ignore_dups     # do not record an event that was just recorded again
 setopt hist_ignore_all_dups # delete an old recorded event if a new event is a duplicate
@@ -50,8 +50,6 @@ function plugin-load {
 		fi
 		fpath+=$plugdir
 		(( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
-
-		clear
 	done
 }
 
@@ -65,9 +63,6 @@ repos=(
 plugin-load $repos
 
 eval "$(starship init zsh)"
-
-# Startup
-#fastfetch
 
 
 # Binds
