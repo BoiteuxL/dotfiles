@@ -60,6 +60,11 @@
             "icon": "terminal-powershell"
         }
     },
-    "git.requireGitUserConfig": false
+    "git.requireGitUserConfig": false,
+    "files.autoSave": "afterDelay",
+
+    // Extensions
+    "cSpell.language": "en, en-CA, en-GB, fr, fr-90",
+    "search.defaultViewMode": "tree"
 }
 
