@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
@@ -22,5 +21,45 @@
     "workbench.editor.autoLockGroups": {
         "workbench.editor.chatSession": false
     },
-    "workbench.editor.tabSizing": "fixed"
+    "workbench.editor.tabSizing": "fixed",
+    "window.controlsStyle": "custom",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        
+        "bash": {
+            "path": "/usr/bin/flatpak-spawn",
+            "args": [
+                "--host",
+                "--env=TERM=xterm-256color",
+                "bash"
+            ],
+            "icon": "terminal-bash",
+            "overrideName": true
+        },
+        "zsh": {
+            "path": "/usr/bin/flatpak-spawn",
+            "args": [
+                "--host",
+                "--env=TERM=xterm-256color",
+                "zsh"
+            ],
+            "icon": "terminal-bash",
+            "overrideName": true
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "git.requireGitUserConfig": false
 }
+
