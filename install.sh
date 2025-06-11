@@ -12,7 +12,7 @@ sudo chsh -s "/usr/bin/zsh" # Root
 
 # VSCode
 while IFS= read -r extension; do
-    code --install-extension $extension --force
+   flatpak run com.visualstudio.code --install-extension $extension --force
 done < vscode-extensions
 
 

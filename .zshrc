@@ -65,6 +65,9 @@ plugin-load $repos
 eval "$(starship init zsh)"
 
 
+# Aliases
+alias code="flatpak run com.visualstudio.code"
+
 # Binds
 #bindkey '^[[1;5C' emacs-forward-word
 #bindkey '^[^[[D' emacs-backward-word
