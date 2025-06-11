@@ -163,6 +163,7 @@ behind = '${count}⇣'
 
 [git_metrics]
 disabled = false
+only_nonzero_diffs = false
 added_style = "bold #a6e3a1"
 deleted_style = "bold #f38ba8"
 format = '[++$added]($added_style)|[--$deleted]($deleted_style) '
