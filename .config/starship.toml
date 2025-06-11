@@ -147,7 +147,7 @@ rebase = '[REBASE](#94e2d5)'
 revert = '[REVERT](#f9e2af)'
 
 [git_status]
-format = "$ahead_behind$all_status"
+format = "$ahead_behind $all_status"
 renamed = "[$count»](#89dceb)"
 conflicted = '[C](#f38ba)'
 up_to_date = ''
@@ -157,9 +157,9 @@ modified = '[$count!](#f9e2af)'
 staged = '[$count+](#a6e3a1)'
 deleted = '[$count*](#f38ba8)'
 
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
+ahead = '${count}⇡'
+diverged = '⇕${ahead_count}⇡${behind_count}⇣'
+behind = '${count}⇣'
 
 [git_metrics]
 disabled = false
