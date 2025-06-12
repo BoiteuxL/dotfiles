@@ -74,3 +74,9 @@ alias code="flatpak run com.visualstudio.code"
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^[[3~" delete-char
+
+
+# Path
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/loicb/.zsh/completions:"* ]]; then export FPATH="/home/loicb/.zsh/completions:$FPATH"; fi
+. "/home/loicb/.deno/env"
