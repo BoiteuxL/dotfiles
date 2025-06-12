@@ -22,4 +22,3 @@ stow .
 
 
 echo "Done!"
-echo "Run 'dnconf load / < gnome-dump' to sync Gnome with dconf"
