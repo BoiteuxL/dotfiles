@@ -78,5 +78,5 @@ bindkey "^[[3~" delete-char
 
 # Path
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/loicb/.zsh/completions:"* ]]; then export FPATH="/home/loicb/.zsh/completions:$FPATH"; fi
-. "/home/loicb/.deno/env"
+#if [[ ":$FPATH:" != *":/home/loicb/.zsh/completions:"* ]]; then export FPATH="/home/loicb/.zsh/completions:$FPATH"; fi
+#. "/home/loicb/.deno/env"
