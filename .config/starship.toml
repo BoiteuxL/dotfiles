@@ -1,21 +1,20 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+'$schema' = 'https://starship.rs/config-schema.json'
 add_newline = false
 
 # Left side
-format = """$time$username$directory $character"""
+format = '''$time$username$directory $character'''
 
 # Right side
-right_format = """$nodejs$deno$python$c$cpp$go$rust$go$java$git_branch$git_state$git_status $git_metrics"""
+right_format = '''$cmd_duration  $nodejs $deno $python $c $cpp $golang $rust $java $dotnet $zig  $git_branch$git_state$git_status $git_metrics'''
 
-
-
+palette = 'catppuccin'
 
 ##########################################################
 ######################### Prompt #########################
 ##########################################################
 
 [os]
-format = "$symbol"
+format = '$symbol'
 disabled = true
 
 [os.symbols]
@@ -53,81 +52,134 @@ Unknown = ''
 Windows = ''
 
 [directory]
-format = " in [$path]($style)"
-style = "fg:#89b4fa"
+format = ' in [$path]($style)'
+truncation_length = 4
+truncation_symbol = '.../'
+style = 'fg:#89b4fa'
 truncate_to_repo=true
 
 [username]
-format = "[$user]($style)"
-style_root = "#cba6f7"
-style_user = "#f2cdcd"
+format = '[$user]($style)'
+style_root = '#cba6f7'
+style_user = '#f2cdcd'
 show_always = true
 
 [time]
-format = "[$time](#cdd6f4)"
-time_format = "%H:%M "
+format = '[$time](#cdd6f4)'
+time_format = '%H:%M '
 disabled = true
 
 [character]
-success_symbol = "[❯](#a6e3a1)"
-error_symbol = "[❯](#f38ba8)"
+success_symbol = '[❯](#a6e3a1)'
+error_symbol = '[❯](#f38ba8)'
 
+[cmd_duration]
+disabled = false
+min_time = 1000
+show_milliseconds = true
+format = '[${duration}](${style})'
+style = "subtext0 bold"
 
 
 
 ##########################################################
-########################### Env ##########################
+######################## Languages #######################
 ##########################################################
+
+[aws]
+# TODO: Implement fully
+disabled = true
+symbol = ""
+
+[azure]
+
+[bun]
+disabled = false
+detect_extensions = []
+symbol = ''
+format = '[\[Bun ${version}\]]($style)'
+style = 'rosewater'
+
+[c]
+disabled = false
+detect_extensions = []
+symbol = ''
+format = '[\[C ${version}\]]($style)'
+style = 'blue'
+
+[cmake]
+# TODO: Implement fully
+disabled = true
+symbol = ""
+
+[deno]
+disabled = false
+detect_extensions = []
+symbol = ''
+format = '[\[Deno ${version}\]]($style)'
+style = 'text'
+
+[docker_context]
+# TODO: Implement fully
+disabled = true
+
+[dotnet]
+disabled = false
+detect_extensions = []
+symbol = ""
+format = '[\[.NET ${version}\]]($style)'
+style = 'blue'
+heuristic = true
 
 
 [nodejs]
 disabled = false
 detect_extensions = []
-symbol = ""
-format = "[ ${symbol} NodeJS ${version}]($style)"
-style = "#a6e3a1"
-
-[deno]
-disabled = false
-detect_extensions = []
-symbol = ""
-format = "[ ${symbol} DenoJS ${version}]($style)"
-style = "#cdd6f4"
+symbol = ''
+format = '[\[NodeJS ${version}\]]($style)'
+style = 'green'
 
 [python]
 disabled = false
 detect_extensions = []
-symbol = ""
-format = "[ ${symbol}Python ${version}]($style)"
-style = "#f9e2af"
+symbol = ''
+format = '[\[Python ${version}\]]($style)'
+style = 'yellow'
 
 [java]
 disabled = false
 detect_extensions = []
-symbol = ""
-format = "[ ${symbol}Java ${version}]($style)"
-style = "#fab387"
+symbol = ''
+format = '[\[Java ${version}\]]($style)'
+style = 'peach'
 
 [rust]
 disabled = false
 detect_extensions = []
-symbol = ""
-format = "[ ${symbol}Rust ${version}]($style)"
-style = "#eba0ac"
-
-[c]
-disabled = false
-detect_extensions = []
-format = "[ ${symbol}with ${name}${version}]($style)"
-style = "#b4befe"
+symbol = ''
+format = '[\[Rust ${version}\]]($style)'
+style = 'maroon'
 
 [cpp]
 disabled = false
 detect_extensions = []
-format = "[ ${symbol}with ${name}${version}]($style)"
-style = "#89b4fa"
+symbol = '󰙲'
+format = '[\[C++ ${version}\]]($style)'
+style = 'blue'
 
+[golang]
+disabled = false
+detect_extensions = []
+symbol = ''
+format = '[\[Go ${version}\]]($style)'
+style = 'sky'
 
+[zig]
+disabled = false
+detect_extensions = []
+symbol = ''
+format = '[\[Zig ${version}\]]($style)'
+style = 'yellow'
 
 
 ##########################################################
@@ -135,9 +187,9 @@ style = "#89b4fa"
 ##########################################################
 
 [git_branch]
-format = "[ $symbol $branch ]($style) "
-symbol = ""
-style = "#f2cdcd"
+format = '[$symbol $branch]($style) '
+symbol = ''
+style = "rosewater"
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
@@ -147,8 +199,8 @@ rebase = '[REBASE](#94e2d5)'
 revert = '[REVERT](#f9e2af)'
 
 [git_status]
-format = "$ahead_behind $all_status"
-renamed = "[$count»](#89dceb)"
+format = '$ahead_behind$all_status'
+renamed = '[$count»](#89dceb)'
 conflicted = '[C](#f38ba)'
 up_to_date = ''
 untracked = '[$count?](#a6adc8)'
@@ -164,6 +216,39 @@ behind = '${count}⇣'
 [git_metrics]
 disabled = false
 only_nonzero_diffs = false
-added_style = "bold #a6e3a1"
-deleted_style = "bold #f38ba8"
+added_style = 'bold #a6e3a1'
+deleted_style = 'bold #f38ba8'
 format = '[++$added]($added_style)|[--$deleted]($deleted_style) '
+
+
+
+
+[palettes.default]
+
+[palettes.catppuccin]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
