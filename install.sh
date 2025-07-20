@@ -19,7 +19,7 @@ rm -r ./dotfiles
 # Install packages and apps
 #yay -Sy zsh ptyxis visual-studio-code-bin htop steam
 
-chsh $USER -s /bin/zsh
+sudo chsh $USER -s /bin/zsh
 curl -sS https://starship.rs/install.sh | sh
 
 # Enable services
