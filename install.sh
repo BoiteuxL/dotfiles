@@ -18,7 +18,7 @@ rm -r ./dotfiles
 
 # Install packages and apps
 echo "Installing packages and apps..."
-yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager
+yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager gtk-engine-murrine
 
 # ZSH
 echo "Configuring ZSH..."
@@ -44,4 +44,3 @@ sudo rm /usr/share/applications/xterm.desktop
 sudo rm /usr/share/applications/uxterm.desktop
 sudo rm /usr/share/applications/yad-icon-browser.desktop
 sudo rm /usr/share/applications/yad-settings.desktop
-
