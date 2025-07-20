@@ -44,3 +44,9 @@ sudo rm /usr/share/applications/xterm.desktop
 sudo rm /usr/share/applications/uxterm.desktop
 sudo rm /usr/share/applications/yad-icon-browser.desktop
 sudo rm /usr/share/applications/yad-settings.desktop
+
+echo "Installing GTK theme..."
+cd $HOME
+git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
+./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
+rm -rf ./Catppuccin-GTK-Theme
