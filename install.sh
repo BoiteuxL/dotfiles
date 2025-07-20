@@ -5,6 +5,11 @@ echo "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git
 cd dotfiles
 
+# Remove file to exclude from copy
+rm ./README.mde
+rm ./LICENSE
+rm ./install.sh
+
 echo "Copying config files..."
 find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo "	Copied {}..." \; 
 cd $HOME
