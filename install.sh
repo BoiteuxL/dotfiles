@@ -18,7 +18,7 @@ rm -r ./dotfiles
 
 # Install packages and apps
 echo "Installing packages and apps..."
-yay -Sy zsh ptyxis visual-studio-code-bin htop steam
+yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager
 
 # ZSH
 echo "Configuring ZSH..."
