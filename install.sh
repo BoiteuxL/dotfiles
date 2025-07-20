@@ -1,24 +1,22 @@
 #!/bin/bash
 
-# ZSH
+cd ~
+echo "Cloning dotfiles repository..."
+git clone https://github.com/BoiteuxL/dotfiles.git
+cd dotfiles
 
-echo "Installing ZSH with Starship..."
-sudo dnf install zsh stow
+echo "Copying config files..."
+find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo "	Copied {}..." \; 
+cd $HOME
+rm -r ./dotfiles
 
+# Install packages and apps
+#yay -Sy zsh ptyxis visual-studio-code-bin htop steam
+
+chsh $USER -s /bin/zsh
 curl -sS https://starship.rs/install.sh | sh
 
-chsh -s "/usr/bin/zsh" # User
-sudo chsh -s "/usr/bin/zsh" # Root
+# Enable services
+sudo systemctl enable --now bluetooth
 
-# VSCode
-while IFS= read -r extension; do
-   flatpak run com.visualstudio.code --install-extension $extension --force
-done < vscode-extensions
-
-
-# GNU Stow
-echo "Running GNU Stow..."
-stow .
-
-
-echo "Done!"
+# Cleanup .desktop files
