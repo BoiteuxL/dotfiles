@@ -9,6 +9,7 @@ cd dotfiles
 rm ./README.mde
 rm ./LICENSE
 rm ./install.sh
+rm -r ./.git
 
 echo "Copying config files..."
 find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo "	Copied {}..." \; 
