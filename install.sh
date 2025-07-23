@@ -4,6 +4,7 @@ LOG_SECTION='\033[34;1m'
 LOG_COMMAND='\033[33;1m'
 CLEAR='\033[0m' # Reset color
 
+
 # =============================================
 # Copy dotfiles to home directory
 # =============================================
@@ -20,14 +21,27 @@ yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
 # Import keyboard shortcuts
 echo -e "${LOG_SECTION}Importing keyboard shortcuts...${CLEAR}"
 while IFS= read -r command; do
-    echo -e "${LOG_COMMAND}Running:${CLEAR} $command"
-    eval $command
+    echo -e "${LOG_COMMAND}Running:${CLEAR} gsettings set $command"
+    eval gsettings set $command
 done < "shortcuts"
+
+# =============================================
+# Import Gnome settings
+# =============================================
+echo -e "${LOG_SECTION}Importing Gnome settings...${CLEAR}"
+while IFS= read -r command; do
+    echo -e "${LOG_COMMAND}Running:${CLEAR} gsettings set $command"
+    eval gsettings set $command
+done < "settings"
 
 # Remove file to exclude from copy
 rm -f ./README.md
 rm -f ./LICENSE
 rm -f ./install.sh
+rm -f ./shortcuts
+rm -f ./settings
+rm -f ./packages
+rm -f ./desktop
 rm -rf ./.git
 
 echo -e "${LOG_SECTION}Copying config files...${CLEAR}"
