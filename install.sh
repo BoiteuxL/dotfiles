@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd ~
+cd $HOME
 echo "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git
 cd dotfiles
 
 # Remove file to exclude from copy
-rm -f ./README.mde
+rm -f ./README.md
 rm -f ./LICENSE
 rm -f ./install.sh
 rm -rf ./.git
@@ -18,7 +18,7 @@ rm -r ./dotfiles
 
 # Install packages and apps
 echo "Installing packages and apps..."
-yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager gtk-engine-murrine
+yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch
 
 # ZSH
 echo "Configuring ZSH..."
@@ -50,3 +50,9 @@ cd $HOME
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
 ./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
 rm -rf ./Catppuccin-GTK-Theme
+
+echo "Installing Tela icon theme..."
+cd $HOME
+git clone https://github.com/vinceliuice/Tela-icon-theme.git
+./Tela-icon-theme/install.sh dracula -d $HOME/.icons
+rm -rf ./Tela-icon-theme
