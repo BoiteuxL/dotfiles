@@ -1,7 +1,8 @@
 unsetopt BEEP
 #fastfetch
 
-
+export ZDOTDIR=$HOME/.config/zsh
+export ZPLUGINDIR=$HOME/.config/zsh/plugins
 
 # History
 export HISTSIZE=5000

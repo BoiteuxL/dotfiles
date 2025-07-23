@@ -1,9 +1,28 @@
 #!/bin/bash
 
+LOG_SECTION='\033[34;1m'
+LOG_COMMAND='\033[33;1m'
+CLEAR='\033[0m' # Reset color
+
+# =============================================
+# Copy dotfiles to home directory
+# =============================================
 cd $HOME
-echo "Cloning dotfiles repository..."
+echo -e "${LOG_SECTION}Cloning dotfiles repository...${CLEAR}"
 git clone https://github.com/BoiteuxL/dotfiles.git
 cd dotfiles
+
+# Install packages and apps
+echo -e "${LOG_SECTION}Installing packages and apps...${CLEAR}"
+echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Syu --noconfirm --quiet"
+yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
+
+# Import keyboard shortcuts
+echo -e "${LOG_SECTION}Importing keyboard shortcuts...${CLEAR}"
+while IFS= read -r command; do
+    echo -e "${LOG_COMMAND}Running:${CLEAR} $command"
+    eval $command
+done < "shortcuts"
 
 # Remove file to exclude from copy
 rm -f ./README.md
@@ -11,48 +30,45 @@ rm -f ./LICENSE
 rm -f ./install.sh
 rm -rf ./.git
 
-echo "Copying config files..."
-find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo "	Copied {}..." \; 
+echo -e "${LOG_SECTION}Copying config files...${CLEAR}"
+find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
 cd $HOME
+echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
 rm -r ./dotfiles
 
-# Install packages and apps
-echo "Installing packages and apps..."
-yay -Sy zsh ptyxis visual-studio-code-bin htop steam extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch
 
-# ZSH
-echo "Configuring ZSH..."
+# =============================================
+# ZSH Configuration
+# =============================================
+echo -e "${LOG_SECTION}Configuring ZSH...${CLEAR}"
 sudo chsh $USER -s /bin/zsh
-curl -sS https://starship.rs/install.sh | sh
 
 
-# Cleanup .desktop files
-echo "Removing unused .desktop shortcuts"
-sudo rm /usr/share/applications/avahi-discover.desktop
-sudo rm /usr/share/applications/bvnc.desktop
-sudo rm /usr/share/applications/bssh.desktop
-sudo rm /usr/share/applications/org.gnome.Extensions.desktop
-sudo rm /usr/share/applications/org.gnome.Terminal.desktop
-sudo rm /usr/share/applications/org.gnome.Console.desktop
-sudo rm /usr/share/applications/org.gnome.Usage.desktop
-sudo rm /usr/share/applications/org.gnome.SystemMonitor.desktop
-sudo rm /usr/share/applications/qv4l2.desktop
-sudo rm /usr/share/applications/qvidcap.desktop
-sudo rm /usr/share/applications/stoken-gui.desktop
-sudo rm /usr/share/applications/stoken-gui-small.desktop
-sudo rm /usr/share/applications/xterm.desktop
-sudo rm /usr/share/applications/uxterm.desktop
-sudo rm /usr/share/applications/yad-icon-browser.desktop
-sudo rm /usr/share/applications/yad-settings.desktop
+# =============================================
+# Cleanup unused .desktop shortcuts
+# =============================================
+echo -e "${LOG_SECTION}Removing unused .desktop shortcuts...${CLEAR}"
+while IFS= read -r filepath; do
+    eval sudo rm $filepath
+    echo -e "${LOG_COMMAND}Removed:${CLEAR} $filepath"
+done < "desktop"
 
-echo "Installing GTK theme..."
+
+# =============================================
+# Installing Catppuccin GTK theme and Tela icon theme
+# =============================================
+echo -e "${LOG_SECTION}Installing GTK theme...${CLEAR}"
 cd $HOME
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
+echo -e "${LOG_COMMAND}Running installation script...${CLEAR}"
 ./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
+echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
 rm -rf ./Catppuccin-GTK-Theme
 
-echo "Installing Tela icon theme..."
+echo -e "${LOG_SECTION}Installing Tela icon theme...${CLEAR}"
 cd $HOME
 git clone https://github.com/vinceliuice/Tela-icon-theme.git
+echo -e "${LOG_COMMAND}Running installation script...${CLEAR}"
 ./Tela-icon-theme/install.sh dracula -d $HOME/.icons
+echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
 rm -rf ./Tela-icon-theme
