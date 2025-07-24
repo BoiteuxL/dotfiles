@@ -16,17 +16,16 @@ run_in_file() {
     done < "$file"
 }
 
-# Install packages and apps
-echo -e "${LOG_SECTION}Installing packages and apps...${CLEAR}"
-echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Syu --noconfirm --quiet"
-yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
-
 
 cd $HOME
 echo -e "${LOG_SECTION}Cloning dotfiles repository...${CLEAR}"
 git clone https://github.com/BoiteuxL/dotfiles.git
 cd dotfiles
 
+# Install packages and apps
+echo -e "${LOG_SECTION}Installing packages and apps...${CLEAR}"
+echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Syu --noconfirm --quiet"
+yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
 
 # =============================================
 # Installing Catppuccin GTK theme and Tela icon theme
