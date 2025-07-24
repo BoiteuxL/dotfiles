@@ -24,7 +24,7 @@ cd dotfiles
 
 # Install packages and apps
 echo -e "${LOG_SECTION}Installing packages and apps...${CLEAR}"
-echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Syu --noconfirm --quiet"
+echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Sy --noconfirm --quiet"
 yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
 
 # =============================================
