@@ -102,3 +102,5 @@ sudo chsh $USER -s /bin/zsh
 # =============================================
 echo -e "${LOG_SECTION}Removing unused .desktop shortcuts...${CLEAR}"
 run_in_file "desktop" "sudo rm"
+
+echo -e "${LOG_SECTION}Done!${CLEAR}"
