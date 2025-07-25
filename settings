@@ -1,7 +1,0 @@
-# Gnome
-org.gnome.shell.weather locations "[<(uint32 2, <('Quebec', 'CYQB', false, [(0.81681408993334614, -1.2458741918975214)], @a(dd) [])>)>]"
-org.gnome.desktop.interface monospace-font-name "Hack Nerd Font 11"
-org.gnome.desktop.interface icon-theme "Tela-dracula-dark"
-org.gnome.desktop.interface gtk-theme "Catppuccin-Purple-Dark"
-# Extensions
-org.gnome.shell.extensions.user-theme name "Catppuccin-Purple-Dark"
