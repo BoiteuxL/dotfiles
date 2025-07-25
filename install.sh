@@ -50,6 +50,8 @@ rm -rf ./Tela-icon-theme
 # =============================================
 # Import Gnome settings + extensions
 # =============================================
+cd $HOME
+cd ./dotfiles
 
 # Import Gnome extensions
 echo -e "${LOG_SECTION}Installing Gnome extensions...${CLEAR}"
