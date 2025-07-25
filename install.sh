@@ -79,6 +79,8 @@ rm -rf ./.git
 # =============================================
 # Copy dotfiles to home directory
 # =============================================
+cd $HOME
+cd ./dotfiles
 echo -e "${LOG_SECTION}Copying config files...${CLEAR}"
 find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
 cd $HOME
