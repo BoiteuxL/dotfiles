@@ -28,6 +28,12 @@ echo -e "${LOG_COMMAND}Running:${CLEAR} yay -Sy --noconfirm --quiet"
 yay -Syu $(cat packages | cut -d' ' -f1) --noconfirm --quiet
 
 # =============================================
+# ZSH Configuration
+# =============================================
+echo -e "${LOG_SECTION}Configuring ZSH...${CLEAR}"
+sudo chsh $USER -s /bin/zsh
+
+# =============================================
 # Installing Catppuccin GTK theme and Tela icon theme
 # =============================================
 echo -e "${LOG_SECTION}Installing GTK theme...${CLEAR}"
@@ -85,16 +91,6 @@ cd $HOME
 cd ./dotfiles
 echo -e "${LOG_SECTION}Copying config files...${CLEAR}"
 find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
-cd $HOME
-echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
-rm -r ./dotfiles
-
-
-# =============================================
-# ZSH Configuration
-# =============================================
-echo -e "${LOG_SECTION}Configuring ZSH...${CLEAR}"
-sudo chsh $USER -s /bin/zsh
 
 
 # =============================================
@@ -102,5 +98,9 @@ sudo chsh $USER -s /bin/zsh
 # =============================================
 echo -e "${LOG_SECTION}Removing unused .desktop shortcuts...${CLEAR}"
 run_in_file "desktop" "sudo rm"
+
+echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
+cd $HOME
+rm -r ./dotfiles
 
 echo -e "${LOG_SECTION}Done!${CLEAR}"
