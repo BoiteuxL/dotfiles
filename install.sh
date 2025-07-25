@@ -12,7 +12,7 @@ function log_command() {
     echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
-Start script
+#Start script
 cd $HOME
 log_command "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git --quiet
