@@ -9,7 +9,7 @@ function log_section() {
 }
 
 function log_command() {
-    echo -e "  ${LOG_COMMAND}$1${CLEAR}"
+    echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
 # User theme

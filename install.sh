@@ -9,18 +9,18 @@ function log_section() {
 }
 
 function log_command() {
-    echo -e "  ${LOG_COMMAND}$1${CLEAR}"
+    echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
 # Start script
 cd $HOME
 echo -e "${LOG_SECTION}Cloning dotfiles repository...${CLEAR}"
-git clone https://github.com/BoiteuxL/dotfiles.git
+git clone https://github.com/BoiteuxL/dotfiles.git --quiet
 cd dotfiles
 
 # Install packages and apps
 log_section "Packages and appplications"
-#yay -Sy --noconfirm --quiet zsh ptyxis visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable
+yay -Sy --noconfirm --quiet zsh ptyxis visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable
 
 # =============================================
 # ZSH Configuration
@@ -34,14 +34,14 @@ sudo chsh $USER -s /bin/zsh
 log_section "GTK theme and icons"
 
 log_command "Cloning Catppuccin GTK theme repository..."
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git
+git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git --quiet
 log_command "Running installation script for Catppuccin GTK theme..."
 ./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
 log_command "Cleaning up..."
 rm -rf ./Catppuccin-GTK-Theme
 
 log_command "Cloning Tela icon theme repository..."
-git clone https://github.com/vinceliuice/Tela-icon-theme.git
+git clone https://github.com/vinceliuice/Tela-icon-theme.git --quiet
 log_command "Running installation script for Tela icon theme..."
 ./Tela-icon-theme/install.sh dracula -d $HOME/.icons
 log_command "Cleaning up..."
@@ -77,7 +77,7 @@ log_section ".desktop shortcuts"
 
 cd ./files
 log_section "Configuration files"
-find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "  ${LOG_COMMAND}Copied:${CLEAR} {}" \; 
+find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
 
 
 log_command "Cleaning up..."
