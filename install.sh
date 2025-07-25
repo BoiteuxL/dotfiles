@@ -73,6 +73,16 @@ sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensi
 run_in_file "settings" "gsettings set"
 
 
+# =============================================
+# Cleanup unused .desktop shortcuts
+# =============================================
+echo -e "${LOG_SECTION}Removing unused .desktop shortcuts...${CLEAR}"
+run_in_file "desktop" "sudo rm"
+
+# =============================================
+# Copy dotfiles to home directory
+# =============================================
+
 # Remove file to exclude from mass copy
 rm -f ./README.md
 rm -f ./LICENSE
@@ -84,20 +94,11 @@ rm -f ./settings
 rm -f ./desktop
 rm -rf ./.git
 
-# =============================================
-# Copy dotfiles to home directory
-# =============================================
 cd $HOME
 cd ./dotfiles
 echo -e "${LOG_SECTION}Copying config files...${CLEAR}"
 find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
 
-
-# =============================================
-# Cleanup unused .desktop shortcuts
-# =============================================
-echo -e "${LOG_SECTION}Removing unused .desktop shortcuts...${CLEAR}"
-run_in_file "desktop" "sudo rm"
 
 echo -e "${LOG_COMMAND}Cleaning up...${CLEAR}"
 cd $HOME
