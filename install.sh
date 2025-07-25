@@ -13,13 +13,13 @@ function log_command() {
 }
 
 # Start script
-cd $HOME
-echo -e "${LOG_SECTION}Cloning dotfiles repository...${CLEAR}"
-git clone https://github.com/BoiteuxL/dotfiles.git --quiet
-cd dotfiles
+# cd $HOME
+# log_command "Cloning dotfiles repository..."
+# git clone https://github.com/BoiteuxL/dotfiles.git --quiet
+# cd dotfiles
 
 # Install packages and apps
-log_section "Packages and appplications"
+log_command "Installing packages and applications using yay..."
 yay -Sy --noconfirm --quiet zsh ptyxis visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable
 
 # =============================================
