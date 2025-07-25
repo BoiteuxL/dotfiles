@@ -12,11 +12,11 @@ function log_command() {
     echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
-# Start script
-# cd $HOME
-# log_command "Cloning dotfiles repository..."
-# git clone https://github.com/BoiteuxL/dotfiles.git --quiet
-# cd dotfiles
+Start script
+cd $HOME
+log_command "Cloning dotfiles repository..."
+git clone https://github.com/BoiteuxL/dotfiles.git --quiet
+cd dotfiles
 
 # Install packages and apps
 log_command "Installing packages and applications using yay..."
