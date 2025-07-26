@@ -12,8 +12,7 @@ function log_command() {
     echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
-
-log_section "Starting installation script..."
+log_section "Starting installation script..."4d798f2181acbe28905f3ae6885deab4ec33651a
 cd $HOME
 log_command "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git --quiet
