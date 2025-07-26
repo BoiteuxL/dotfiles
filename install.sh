@@ -12,7 +12,8 @@ function log_command() {
     echo -e "${LOG_COMMAND}$1${CLEAR}"
 }
 
-Start script
+
+log_section "Starting installation script..."
 cd $HOME
 log_command "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git --quiet
@@ -31,18 +32,18 @@ sudo chsh $USER -s /bin/zsh
 # =============================================
 # Installing Catppuccin GTK theme and Tela icon theme
 # =============================================
-log_section "GTK theme and icons"
+log_section "Installing GTK theme and icon pack..."
 
 log_command "Cloning Catppuccin GTK theme repository..."
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git --quiet
-log_command "Running installation script for Catppuccin GTK theme..."
+log_command "Running installation script..."
 ./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
 log_command "Cleaning up..."
 rm -rf ./Catppuccin-GTK-Theme
 
-log_command "Cloning Tela icon theme repository..."
+log_command "Cloning Tela icon pack repository..."
 git clone https://github.com/vinceliuice/Tela-icon-theme.git --quiet
-log_command "Running installation script for Tela icon theme..."
+log_command "Running installation script..."
 ./Tela-icon-theme/install.sh dracula -d $HOME/.icons
 log_command "Cleaning up..."
 rm -rf ./Tela-icon-theme
@@ -53,32 +54,30 @@ rm -rf ./Tela-icon-theme
 # =============================================
 
 # Import Gnome extensions
-log_section "Gnome extensions"
-./scripts/extensions/install_extensions.sh
-./scripts/extensions/setup_extensions.sh
+log_section "Installing Gnome extensions..."
+./scripts/setup_extensions.sh
 
 # Import Gnome settings
-log_section "Gnome settings"
-./scripts/gnome/setup_gnome.sh
+log_section "Importing Gnome settings..."
+./scripts/setup_gnome.sh
 # Import Gnome shortcuts
 log_command "Importing keyboard shortcuts..."
-./scripts/gnome/setup_shortcuts.sh
+./scripts/setup_shortcuts.sh
 
 
 # =============================================
 # Cleanup unused .desktop shortcuts
 # =============================================
-log_section ".desktop shortcuts"
-./scripts/gnome/remove_desktop.sh
+log_section "Removing .desktop shortcuts..."
+./scripts/remove_desktop.sh
 
 # =============================================
 # Copy dotfiles to home directory
 # =============================================
 
 cd ./files
-log_section "Configuration files"
-find ${pwd} -type f -exec cp --parents {} $HOME \;  -exec echo -e "${LOG_COMMAND}Copied:${CLEAR} {}" \; 
-
+log_section "Copying configuration files..."
+find . -type f -exec ../scripts/copy_file.sh {} \;
 
 log_command "Cleaning up..."
 cd $HOME
