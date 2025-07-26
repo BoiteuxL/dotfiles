@@ -1,6 +1,6 @@
 [user]
 	name = Loïc Boiteux
-	email = loicboiteux@protonmail.com
+	email = loic.boiteux@protonmail.com
     #signingkey = 
 
 [commit]
@@ -77,9 +77,9 @@
 #    context    = white
 #    whitespace = yellow reverse
 #
-## URL shortcuts
-#[url "git@github.com:"]
-#    insteadOf = "gh:"
-#
-#[url "git@gitlab.com:"]
-#    insteadOf = "gl:"
+# URL shortcuts
+[url "git@github.com:"]
+   insteadOf = "gh:"
+
+[url "git@gitlab.com:"]
+   insteadOf = "gl:"

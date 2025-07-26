@@ -67,7 +67,9 @@ eval "$(starship init zsh)"
 
 
 # Aliases
-# alias code="flatpak run com.visualstudio.code"
+for file in $ZDOTDIR/aliases/alias_*.zsh; do
+    source "$file"
+done
 
 # Binds
 #bindkey '^[[1;5C' emacs-forward-word
