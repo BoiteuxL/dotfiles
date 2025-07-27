@@ -23,5 +23,7 @@ gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Quebec', 'CYQB'
 
 log_command "Setting up UI settings..."
 gsettings set org.gnome.desktop.interface monospace-font-name "Hack Nerd Font 11"
+gsettings set org.gnome.desktop.interface document-font-name "Atkinson Hyperlegible 11"
+gsettings set org.gnome.desktop.interface font-name "Clear Sans 11"
 gsettings set org.gnome.desktop.interface icon-theme "Tela-dracula-dark"
 gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Purple-Dark"
