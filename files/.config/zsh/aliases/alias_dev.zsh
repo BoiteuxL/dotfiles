@@ -1,7 +1,7 @@
 
 # Git Aliases
 alias gclone='git clone'
-alias ginit='git initcdcd
+alias ginit='git init'
 alias gpull='git pull'
 alias gpush='git push'
 alias gstatus='git status'
