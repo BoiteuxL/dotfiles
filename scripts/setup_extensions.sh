@@ -288,3 +288,18 @@ sudo cp $HOME/.local/share/gnome-shell/extensions/runcat@kolesnikov.se/schemas/o
 log_command "Configuring extension: Runcat"
 gsettings set org.gnome.shell.extensions.runcat displaying-items 'character-only'
 gsettings set org.gnome.shell.extensions.runcat idle-threshold 10
+
+# Runcat
+log_item "Runcat"
+log_command "Installing extension: Arch Linux Updates Indicator"
+gext install arch-update@RaphaelRochet
+
+log_command "Importing schema for: Arch Linux Updates Indicator"
+sudo cp $HOME/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/org.gnome.shell.extensions.arch-update.gschema.xml  /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
+log_command "Configuring extension: Arch Linux Updates Indicator"
+gsettings set org.gnome.shell.extensions.arch-update always-visible false
+gsettings set org.gnome.shell.extensions.arch-update enable-positioning true
+gsettings set org.gnome.shell.extensions.arch-update position-number 1
+gsettings set org.gnome.shell.extensions.arch-update update-cmd "ptyxis --new-window -x '/bin/sh -c "yay -Syu ; echo Done - Press enter to exit; read _"'
+gsettings set org.gnome.shell.extensions.arch-update use-buildin-icons false
