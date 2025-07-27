@@ -31,7 +31,7 @@ sudo chsh $USER -s /bin/zsh
 # =============================================
 # Installing Catppuccin GTK theme and Tela icon theme
 # =============================================
-log_section "Installing GTK theme and icon pack..."
+log_section "Installing GTK theme, icon pack and sound pack..."
 
 log_command "Cloning Catppuccin GTK theme repository..."
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git --quiet
@@ -47,6 +47,11 @@ log_command "Running installation script..."
 log_command "Cleaning up..."
 rm -rf ./Tela-icon-theme
 
+log_command "Cloning MinimalUI sound pack repository..."
+mkdir -p ~/.local/share/sounds
+cd $HOME/.local/share/sounds
+git clone https://github.com/cadecomposer/modern-minimal-ui-sounds.git --quiet
+cd $HOME/dotfiles
 
 # =============================================
 # Import Gnome settings + extensions
