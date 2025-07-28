@@ -14,4 +14,5 @@ function log_command() {
 file_path="$1" # Now it's $1 because find passes it as an argument
 transformed_path="${file_path#./}"
 final_path="${HOME}/${transformed_path}"
+cp --parents $file_path $HOME
 echo -e "${LOG_COMMAND}Copied file:${CLEAR} ${final_path}"
