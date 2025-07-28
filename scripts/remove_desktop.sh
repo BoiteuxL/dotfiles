@@ -4,7 +4,7 @@ sudo rm /usr/share/applications/avahi-discover.desktop
 sudo rm /usr/share/applications/bvnc.desktop
 sudo rm /usr/share/applications/bssh.desktop
 sudo rm /usr/share/applications/org.gnome.Extensions.desktop
-sudo rm /usr/share/applications/org.gnome.Terminal.desktop
+#sudo rm /usr/share/applications/org.gnome.Terminal.desktop
 sudo rm /usr/share/applications/org.gnome.Console.desktop
 sudo rm /usr/share/applications/org.gnome.Usage.desktop
 sudo rm /usr/share/applications/org.gnome.SystemMonitor.desktop
