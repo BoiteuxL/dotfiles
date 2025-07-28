@@ -289,8 +289,8 @@ log_command "Configuring extension: Runcat"
 gsettings set org.gnome.shell.extensions.runcat displaying-items 'character-only'
 gsettings set org.gnome.shell.extensions.runcat idle-threshold 10
 
-# Runcat
-log_item "Runcat"
+# Arch Linux Updates Indicator
+log_item "Arch Linux Updates Indicator"
 log_command "Installing extension: Arch Linux Updates Indicator"
 gext install arch-update@RaphaelRochet
 
@@ -301,5 +301,56 @@ log_command "Configuring extension: Arch Linux Updates Indicator"
 gsettings set org.gnome.shell.extensions.arch-update always-visible false
 gsettings set org.gnome.shell.extensions.arch-update enable-positioning true
 gsettings set org.gnome.shell.extensions.arch-update position-number 1
-gsettings set org.gnome.shell.extensions.arch-update update-cmd "ptyxis --new-window -x '/bin/sh -c "yay -Syu ; echo Done - Press enter to exit; read _"'
 gsettings set org.gnome.shell.extensions.arch-update use-buildin-icons false
+
+
+# MPRIS Label
+log_item "MPRIS Label"
+log_command "Installing extension: MPRIS Label"
+gext install mprisLabel@moon-0xff.github.com
+log_command "Importing schema for: MPRIS Label"
+sudo cp $HOME/.local/share/gnome-shell/extensions/mprisLabel@moon-0xff.github.com/schemas/org.gnome.shell.extensions.mpris-label.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
+log_command "Configuring extension: MPRIS Label"
+gsettings set org.gnome.shell.extensions.mpris-label album-blacklist ''
+gsettings set org.gnome.shell.extensions.mpris-label album-size 60
+gsettings set org.gnome.shell.extensions.mpris-label auto-switch-to-most-recent true
+gsettings set org.gnome.shell.extensions.mpris-label button-placeholder ''
+gsettings set org.gnome.shell.extensions.mpris-label divider-string ' | '
+gsettings set org.gnome.shell.extensions.mpris-label double-click-time 400
+gsettings set org.gnome.shell.extensions.mpris-label enable-double-clicks false
+gsettings set org.gnome.shell.extensions.mpris-label extension-index 3
+gsettings set org.gnome.shell.extensions.mpris-label extension-place 'left'
+gsettings set org.gnome.shell.extensions.mpris-label first-field 'xesam:artist'
+gsettings set org.gnome.shell.extensions.mpris-label font-color ''
+gsettings set org.gnome.shell.extensions.mpris-label icon-padding 5
+gsettings set org.gnome.shell.extensions.mpris-label label-filtered-list 'remaster,remix,featuring,live'
+gsettings set org.gnome.shell.extensions.mpris-label last-field 'xesam:title'
+gsettings set org.gnome.shell.extensions.mpris-label left-click-action 'open-menu'
+gsettings set org.gnome.shell.extensions.mpris-label left-double-click-action 'next-track'
+gsettings set org.gnome.shell.extensions.mpris-label left-padding 30
+gsettings set org.gnome.shell.extensions.mpris-label max-string-length 25
+gsettings set org.gnome.shell.extensions.mpris-label middle-click-action 'play-pause'
+gsettings set org.gnome.shell.extensions.mpris-label middle-double-click-action 'none'
+gsettings set org.gnome.shell.extensions.mpris-label mpris-sources-blacklist ''
+gsettings set org.gnome.shell.extensions.mpris-label mpris-sources-whitelist ''
+gsettings set org.gnome.shell.extensions.mpris-label refresh-rate 300
+gsettings set org.gnome.shell.extensions.mpris-label remove-text-paused-delay 3
+gsettings set org.gnome.shell.extensions.mpris-label remove-text-when-paused true
+gsettings set org.gnome.shell.extensions.mpris-label reposition-delay 2
+gsettings set org.gnome.shell.extensions.mpris-label reposition-on-button-press false
+gsettings set org.gnome.shell.extensions.mpris-label right-click-action 'activate-player'
+gsettings set org.gnome.shell.extensions.mpris-label right-double-click-action 'prev-track'
+gsettings set org.gnome.shell.extensions.mpris-label right-padding 30
+gsettings set org.gnome.shell.extensions.mpris-label scroll-action 'volume-controls'
+gsettings set org.gnome.shell.extensions.mpris-label scroll-delay 100
+gsettings set org.gnome.shell.extensions.mpris-label second-field ''
+gsettings set org.gnome.shell.extensions.mpris-label show-icon 'left'
+gsettings set org.gnome.shell.extensions.mpris-label symbolic-source-icon true
+gsettings set org.gnome.shell.extensions.mpris-label thumb-backward-action 'prev-track'
+gsettings set org.gnome.shell.extensions.mpris-label thumb-double-backward-action 'none'
+gsettings set org.gnome.shell.extensions.mpris-label thumb-double-forward-action 'none'
+gsettings set org.gnome.shell.extensions.mpris-label thumb-forward-action 'next-track'
+gsettings set org.gnome.shell.extensions.mpris-label use-album false
+gsettings set org.gnome.shell.extensions.mpris-label volume-control-scheme 'application'
+gsettings set org.gnome.shell.extensions.mpris-label use-whitelisted-sources-only false
