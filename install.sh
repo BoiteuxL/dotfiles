@@ -20,7 +20,7 @@ cd dotfiles
 
 # Install packages and apps
 log_command "Installing packages and applications using yay..."
-yay -Sy --noconfirm --quiet zsh ptyxis visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
 
 # =============================================
 # ZSH Configuration
@@ -33,6 +33,7 @@ sudo chsh $USER -s /bin/zsh
 # =============================================
 log_section "Installing GTK theme, icon pack and sound pack..."
 
+# Clone and install Catppuccin GTK theme
 log_command "Cloning Catppuccin GTK theme repository..."
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git --quiet
 log_command "Running installation script..."
@@ -40,6 +41,11 @@ log_command "Running installation script..."
 log_command "Cleaning up..."
 rm -rf ./Catppuccin-GTK-Theme
 
+# Clone and install Catppuccin GNOME Terminal theme
+log_command "Installing Catppuccin GNOME Terminal theme..."
+curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v1.0.0/install.py | python3 -
+
+# Clone and install Tela icon theme
 log_command "Cloning Tela icon pack repository..."
 git clone https://github.com/vinceliuice/Tela-icon-theme.git --quiet
 log_command "Running installation script..."
@@ -47,11 +53,14 @@ log_command "Running installation script..."
 log_command "Cleaning up..."
 rm -rf ./Tela-icon-theme
 
+# Clone and install MinimalUI sound pack
 log_command "Cloning MinimalUI sound pack repository..."
 mkdir -p ~/.local/share/sounds
 cd $HOME/.local/share/sounds
 git clone https://github.com/cadecomposer/modern-minimal-ui-sounds.git --quiet
 cd $HOME/dotfiles
+
+
 
 # =============================================
 # Import Gnome settings + extensions
