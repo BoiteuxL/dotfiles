@@ -231,3 +231,9 @@ gsettings set org.gnome.shell.keybindings toggle-application-view "['<Super>a']"
 gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>n']"
 gsettings set org.gnome.shell.keybindings toggle-overview  "[]"
 gsettings set org.gnome.shell.keybindings toggle-quick-settings  "[]"
+
+# Custom keybindings
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Open Terminal"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "gnome-terminal"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>t"
