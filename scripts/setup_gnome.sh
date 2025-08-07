@@ -50,7 +50,7 @@ gsettings set org.gnome.mutter edge-tiling false
 gsettings set org.gnome.mutter workspaces-only-on-primary true
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 5
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'firefox.desktop', 'code.desktop', 'teams-for-linux.desktop', 'org.gnome.Settings.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'librewolf.desktop', 'obsidian.desktop', 'code.desktop', 'teams-for-linux.desktop', 'org.gnome.Settings.desktop']"
 # Mouse/Touchpad/Keyboard
 gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
 

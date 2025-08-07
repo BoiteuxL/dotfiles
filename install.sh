@@ -20,7 +20,7 @@ cd dotfiles
 
 # Install packages and apps
 log_command "Installing packages and applications using yay..."
-yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
 
 # =============================================
 # ZSH Configuration
