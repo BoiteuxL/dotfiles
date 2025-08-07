@@ -56,3 +56,8 @@ gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enable
 
 log_command "Setting up weather location..."
 gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Quebec', 'CYQB', false, [(0.81681408993334614, -1.2458741918975214)], @a(dd) [])>)>]"
+
+
+# GDM
+gsettings set org.gnome.login-screen logo '/usr/share/pixmaps/endeavouros-logo-text-dark.svg'
+gsettings set org.gnome.login-screen fallback-logo '/usr/share/pixmaps/archlinux-logo-text-dark.svg'
