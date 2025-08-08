@@ -1,11 +1,11 @@
 
 # Yay Aliases
 
- alias yay='paru'
-alias yayi='paru -S'
-alias yayr='paru -Rns'
-alias yayma='sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist && paru -Syyu'
-alias yayme='sudo eos-rankmirrors --verbose && paru -Syyu'
+alias yay='echo "Nuhuh, use paru"'
+alias yayi='echo "Nuhuh, use paru"'
+alias yayr='echo "Nuhuh, use paru"'
+alias yayma='echo "Nuhuh, use paru"'
+alias yayme='echo "Nuhuh, use paru"'
 
 # paru
 alias parui='paru -S'
