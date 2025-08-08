@@ -1,7 +1,7 @@
 
 # Yay Aliases
-# alias yay='yay'
 
+ alias yay='paru'
 alias yayi='paru -S'
 alias yayr='paru -Rns'
 alias yayma='sudo reflector --protocol https --verbose --latest 25 --sort rate --save /etc/pacman.d/mirrorlist && paru -Syyu'
