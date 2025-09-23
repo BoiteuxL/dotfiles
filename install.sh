@@ -21,39 +21,8 @@ cd dotfiles
 # Install packages and apps
 log_command "Installing packages and applications..."
 
-read -p "Are you using an Arch-based or Fedora-based distribution? (a/f): " distro
-if [[ "$distro" =~ ^[Ff]$ ]]; then
-    DISTRO="fedora"
-elif [[ "$distro" =~ ^[Aa]$ ]]; then
-    DISTRO="arch"
-else
-    log_command "Invalid input. Please enter 'a' for Arch-based or 'f' for Fedora-based."
-    log_command "Cleaning up..."
-    cd $HOME
-    sudo rm -rf ./dotfiles
-    exit 1
-fi
 
-# Arch-based
-if [[ "$DISTRO" == "arch" ]]; then
-    yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
-fi
-
-# Fedora-based
-if [[ "$DISTRO" == "fedora" ]]; then
-    sudo dnf install zsh gtk-murrine-engine cmatrix fastfetch -y
-    flatpak install flathub com.mattjakeman.ExtensionManager -y
-    flatpak install flathub com.github.IsmaelMartinez.teams_for_linux -y
-
-    # Visual Studio Code
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
-    dnf check-update
-    sudo dnf install code -y
-
-    echo -e "${LOG_COMMAND}NOTE: You must install the fonts manually. (JetBrainsMono Nerd, Hack Nerd, Atkinson Hyperlegible, Clear Sans)${CLEAR}"
-    read -p "Press [Enter] when you have installed the fonts..."
-fi
+yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
 
 # =============================================
 # ZSH Configuration
