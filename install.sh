@@ -19,8 +19,38 @@ git clone https://github.com/BoiteuxL/dotfiles.git --quiet
 cd dotfiles
 
 # Install packages and apps
-log_command "Installing packages and applications using yay..."
-yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+log_command "Installing packages and applications..."
+
+read -p "Are you using an Arch-based or Fedora-based distribution? (a/f): " distro
+if [[ "$distro" =~ ^[Ff]$ ]]; then
+    DISTRO="fedora"
+elif [[ "$distro" =~ ^[Aa]$ ]]; then
+    DISTRO="arch"
+else
+    log_command "Invalid input. Please enter 'a' for Arch-based or 'f' for Fedora-based."
+    log_command "Cleaning up..."
+    cd $HOME
+    sudo rm -rf ./dotfiles
+    exit 1
+fi
+
+# Arch-based
+if [[ "$DISTRO" == "arch" ]]; then
+    yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+fi
+
+if [[ "$DISTRO" == "fedora" ]]; then
+    sudo dnf install zsh gtk-murrine-engine cmatrix fastfetch -y
+    flatpak install flathub com.mattjakeman.ExtensionManager -y
+    flatpak install flathub com.github.IsmaelMartinez.teams_for_linux
+
+    # Visual Studio Code
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    dnf check-update
+    sudo dnf install code # or code-insiders
+
+fi
 
 # =============================================
 # ZSH Configuration
@@ -28,36 +58,11 @@ yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeav
 log_command "Configuring ZSH..."
 sudo chsh $USER -s /bin/zsh
 
+
 # =============================================
 # Installing Catppuccin GTK theme and Tela icon theme
 # =============================================
-log_section "Installing GTK theme, icon pack and sound pack..."
-
-# Clone and install Catppuccin GTK theme
-log_command "Cloning Catppuccin GTK theme repository..."
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git --quiet
-log_command "Running installation script..."
-./Catppuccin-GTK-Theme/themes/install.sh -l -t purple --tweaks macos float
-log_command "Cleaning up..."
-rm -rf ./Catppuccin-GTK-Theme
-
-# Clone and install Catppuccin GNOME Terminal theme
-log_command "Installing Catppuccin GNOME Terminal theme..."
-curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v1.0.0/install.py | python3 -
-
-# Clone and install Tela icon theme
-log_command "Cloning Tela icon pack repository..."
-git clone https://github.com/vinceliuice/Tela-icon-theme.git --quiet
-log_command "Running installation script..."
-./Tela-icon-theme/install.sh dracula -d $HOME/.icons
-log_command "Cleaning up..."
-rm -rf ./Tela-icon-theme
-
-# Clone and install MinimalUI sound pack
-log_command "Cloning MinimalUI sound pack repository..."
-mkdir -p ~/.local/share/sounds
-cd $HOME/.local/share/sounds
-git clone https://github.com/cadecomposer/modern-minimal-ui-sounds.git --quiet
+./scripts/theme_catppuccin.sh
 cd $HOME/dotfiles
 
 
@@ -78,6 +83,7 @@ log_command "Importing keyboard shortcuts..."
 ./scripts/setup_shortcuts.sh
 
 
+
 # =============================================
 # Cleanup unused .desktop shortcuts
 # =============================================
@@ -94,6 +100,13 @@ find . -type f -exec ../scripts/copy_file.sh {} \;
 
 log_command "Cleaning up..."
 cd $HOME
-rm -r ./dotfiles
+sudo rm -rf ./dotfiles
 
 echo -e "${LOG_SECTION}Done!${CLEAR}"
+
+
+echo -e "${LOG_COMMAND}Please restart your computer to apply all changes.${CLEAR}"
+
+if [[ "$DISTRO" == "fedora" ]]; then
+    echo -e "${LOG_COMMAND}NOTE: You must install the fonts manually. (JetBrainsMono Nerd, Hack Nerd, Atkinson Hyperlegible, Clear Sans)${CLEAR}"
+fi

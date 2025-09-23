@@ -23,21 +23,26 @@ function log_command() {
 # User theme
 log_item "User Themes"
 log_command "Installing extension: User Themes"
-gext install user-theme@gnome-shell-extensions.gcampax.github.com
+echo "Manual install required for User Themes extension."
+read -p "Press [Enter] key to confirm installation..."
+#gext install user-theme@gnome-shell-extensions.gcampax.github.com
 
 log_command "Importing schema for: User Themes"
 sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 
-log_command "Importing configuration for: User Themes"
-gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Purple-Dark"
-
+if ls "$HOME/.themes/" | grep -q "Catppuccin-Purple"; then
+    log_command "Importing configuration for: User Themes"
+    gsettings set org.gnome.shell.extensions.user-theme name "Catppuccin-Purple-Dark"
+fi
 
 
 
 # Dash To Dock
 log_item "Dash To Dock"
 log_command "Installing extension: Dash To Dock"
-gext install dash-to-dock@micxgx.gmail.com
+#gext install dash-to-dock@micxgx.gmail.com
+echo "Manual install required for Dash To Dock extension."
+read -p "Press [Enter] key to confirm installation..."
 
 log_command "Importing schema for: Dash To Dock"
 sudo cp $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas/org.gnome.shell.extensions.dash-to-dock.gschema.xml  /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -157,7 +162,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock workspace-agnostic-urgent-
 # Forge
 log_item "Forge"
 log_command "Installing extension: Forge"
-gext install forge@jmmaranan.com
+#gext install forge@jmmaranan.com
+echo "Manual install required for Forge extension."
+read -p "Press [Enter] key to confirm installation..."
 
 log_command "Importing schema for: Forge"
 sudo cp $HOME/.local/share/gnome-shell/extensions/forge@jmmaranan.com/schemas/org.gnome.shell.extensions.forge.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -197,7 +204,9 @@ gsettings set org.gnome.shell.extensions.forge workspace-skip-tile ''
 # Just Perfection
 log_item "Just Perfection"
 log_command "Installing extension: Just Perfection"
-gext install just-perfection-desktop@just-perfection
+#gext install just-perfection-desktop@just-perfection
+echo "Manual install required for Just Perfection extension."
+read -p "Press [Enter] key to confirm installation..."
 
 log_command "Importing schema for: Just Perfection"
 sudo cp $HOME/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -280,7 +289,9 @@ gsettings set org.gnome.shell.extensions.just-perfection world-clock false
 # Runcat
 log_item "Runcat"
 log_command "Installing extension: Runcat"
-gext install runcat@kolesnikov.se
+#gext install runcat@kolesnikov.se
+echo "Manual install required for Runcat extension."
+read -p "Press [Enter] key to confirm installation..."
 
 log_command "Importing schema for: Runcat"
 sudo cp $HOME/.local/share/gnome-shell/extensions/runcat@kolesnikov.se/schemas/org.gnome.shell.extensions.runcat.gschema.xml  /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -289,25 +300,14 @@ log_command "Configuring extension: Runcat"
 gsettings set org.gnome.shell.extensions.runcat displaying-items 'character-only'
 gsettings set org.gnome.shell.extensions.runcat idle-threshold 10
 
-# Arch Linux Updates Indicator
-log_item "Arch Linux Updates Indicator"
-log_command "Installing extension: Arch Linux Updates Indicator"
-gext install arch-update@RaphaelRochet
-
-log_command "Importing schema for: Arch Linux Updates Indicator"
-sudo cp $HOME/.local/share/gnome-shell/extensions/arch-update@RaphaelRochet/schemas/org.gnome.shell.extensions.arch-update.gschema.xml  /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
-
-log_command "Configuring extension: Arch Linux Updates Indicator"
-gsettings set org.gnome.shell.extensions.arch-update always-visible false
-gsettings set org.gnome.shell.extensions.arch-update enable-positioning true
-gsettings set org.gnome.shell.extensions.arch-update position-number 1
-gsettings set org.gnome.shell.extensions.arch-update use-buildin-icons false
-
 
 # MPRIS Label
 log_item "MPRIS Label"
 log_command "Installing extension: MPRIS Label"
-gext install mprisLabel@moon-0xff.github.com
+#gext install mprisLabel@moon-0xff.github.com
+echo "Manual install required for MPRIS Label extension."
+read -p "Press [Enter] key to confirm installation..."
+
 log_command "Importing schema for: MPRIS Label"
 sudo cp $HOME/.local/share/gnome-shell/extensions/mprisLabel@moon-0xff.github.com/schemas/org.gnome.shell.extensions.mpris-label.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 
