@@ -83,3 +83,5 @@ bindkey "^[[3~" delete-char
 # Add deno completions to search path
 #if [[ ":$FPATH:" != *":/home/loicb/.zsh/completions:"* ]]; then export FPATH="/home/loicb/.zsh/completions:$FPATH"; fi
 #. "/home/loicb/.deno/env"
+
+fortune | cowsay -f /usr/share/cowsay/cows/tux.cow
