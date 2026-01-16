@@ -18,17 +18,34 @@ log_command "Cloning dotfiles repository..."
 git clone https://github.com/BoiteuxL/dotfiles.git --quiet
 cd dotfiles
 
+read -p "make sure that the fonts (ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible) are installed before proceeding. Press any key to continue..." -n1 -s
+
 # Install packages and apps
 log_command "Installing packages and applications..."
 
+# Enable RPM Fusion repos
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 
-yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+# Microsoft Teams for Linux repo
+curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc; sudo rpm --import /tmp/teams-for-linux.asc
+sudo curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.de/rpm/teams-for-linux.repo
+
+sudo dnf check-update -q
+
+#yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
+# Install packages with dnf
+sudo dnf install -y -q zsh htop code firefox cmatrix fastfetch gtk-murrine-engine steam teams-for-linux
+
+sudo flatpak install flathub -y com.mattjakeman.ExtensionManager com.discordapp.Discord
 
 # =============================================
 # ZSH Configuration
 # =============================================
 log_command "Configuring ZSH..."
 sudo chsh $USER -s /bin/zsh
+log_command "Configuring Starship..."
+curl -sS https://starship.rs/install.sh | sh
 
 
 # =============================================
