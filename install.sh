@@ -35,7 +35,7 @@ sudo dnf check-update -q
 
 #yay -Sy --noconfirm --quiet zsh visual-studio-code-bin htop librewolf-bin endeavouros/paru extension-manager gtk-engine-murrine cmatrix pipes.sh fastfetch teams-for-linux firefox starship gnome-extensions-cli ttf-jetbrains-mono-nerd ttf-hack-nerd ttf-segoe-ui-variable ttf-clear-sans ttf-atkinson-hyperlegible
 # Install packages with dnf
-sudo dnf install -y -q zsh htop code firefox cmatrix fastfetch gtk-murrine-engine steam teams-for-linux
+sudo dnf install -y --skip-unavailable zsh htop code firefox cmatrix fastfetch gtk-murrine-engine steam teams-for-linux gnome-tweaks
 
 sudo flatpak install flathub -y com.mattjakeman.ExtensionManager com.discordapp.Discord
 
