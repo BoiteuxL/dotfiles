@@ -1,0 +1,58 @@
+/* CATPPUCCIN MOCHA COLORS */
+@define-color base      #1e1e2e;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color text      #cdd6f4;
+@define-color lavender  #b4befe;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+
+* {
+    font-family: "AtkynsonMono NFP";
+    font-size: 16px;
+    font-weight: 600;
+    background-image: none;
+    transition: 0.2s;
+}
+
+window {
+    background-color: rgba(30, 30, 46, 0.9); /* Transparent @base */
+}
+
+button {
+    color: @text;
+    background-color: @base;
+    outline-style: none;
+    border: 2px solid @surface0;
+    border-radius: 8px; /* Matching your Waybar */
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+    background-color: @surface0;
+    border: 2px solid @lavender; /* Matching your active workspace color */
+    color: @lavender;
+}
+
+/* Specific Icons (Using default wlogout icon names) */
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    color: @red; /* Matching your custom-power color */
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    color: @pink; /* Matching your clock color */
+}

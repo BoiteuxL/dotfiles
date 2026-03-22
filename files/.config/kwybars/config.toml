@@ -1,0 +1,33 @@
+# Example Kwybars config
+# If you do not create a config file, Kwybars already uses these built-in defaults
+
+[overlay]
+monitor_mode = "list"
+monitors = ["DP-1"]
+layer = "background"
+position = "bottom"
+full_length = true
+height = 450
+anchor_margin = 8
+margin_left = 4
+margin_right = 4
+
+[visualizer]
+layout = "line"
+bar_corner_radius = 2
+bars = 120
+bar_width = 16
+gap = 8
+framerate = 90
+
+[daemon]
+enabled = true
+poll_interval_ms = 100
+activity_threshold = 0.035
+activate_delay_ms = 1
+deactivate_delay_ms = 2200
+stop_on_silence = true
+notify_on_error = true
+notify_cooldown_seconds = 45
+overlay_command = "kwybars-overlay"
+overlay_args = []

@@ -2,27 +2,70 @@
 	"layer": "bottom",
 	"position": "top",
 	"height": 32,
-	"spacing": 2,
+	"spacing": 4,
 	"exclusive": true,
 	"gtk-layer-shell": true,
 	"passthrough": false,
 	"fixed-center": true,
+	"reload_style_on_change": true,
+	"output": ["eDP-1", "DP-1"],
+	
 	"modules-left": [
+		"custom/power",
 		"clock",
 		"mpris"
 	],
 	"modules-center": [
-		"hyprland/workspaces"
+        "power-profiles-daemon",
+		"hyprland/workspaces",
+		"custom/notification"
 	],
 	"modules-right": [
 		"tray",
 		"cpu",
 		"memory",
+		"network",
+		"bluetooth",
 		"pulseaudio",
-		"battery",
-		"custom/notification",
-		"custom/power",
+		"battery"
+		
 	],
+
+	"hyprland/workspaces": {
+		"on-click": "activate",
+		"all-outputs": false,
+		"disable-scroll": false,
+		"active-only": false,
+
+		"format": "{icon} {id}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"default": ""
+		},
+		"persistent-workspaces": {
+			"*": [1, 2, 3, 4, 5]
+		}
+	},
+
+
+	// MODULES
+
+	"power-profiles-daemon": {
+	"format": "{icon}",
+	"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+	"tooltip": true,
+	"format-icons": {
+		"default": "",
+		"performance": "",
+		"balanced": "",
+		"power-saver": ""
+	}
+	},
+
 	"mpris": {
 		"player": "spotify",
 		"dynamic-order": [
@@ -32,32 +75,46 @@
 		"format": "{player_icon} {dynamic}",
 		"format-paused": "{status_icon} <i>{dynamic}</i>",
 		"status-icons": {
-			"paused": "",
+			"paused": ""
 		},
 		"player-icons": {
-			"default": "",
+			"default": ""
+		}
+	},
+
+
+	"network": {
+		"format-wifi": "{icon}",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-ethernet": "󰀂",
+		"format-alt": "󱛇",
+		"format-disconnected": "󰖪",
+		"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-disconnected": "Disconnected",
+		"on-click": "hyprctl dispatch exec '[float; size 550 500] kitty -e nmtui connect'",
+		"interval": 5,
+		"nospacing": 1
+	},
+	// ── Bluetooth ────────────────────────────────────────────────────
+	"bluetooth": {
+		"format": "{icon}",
+		"format-icons": {
+		"enabled": "",
+		"disabled": "󰂲"
 		},
+		"on-click": "hyprctl dispatch exec '[float; size 550 500] kitty -e bluetui'",
+		"tooltip-format": "Bluetooth is {status}",
+		"interval": 5
 	},
-	"hyprland/workspaces": {
-		"on-click": "activate",
-		"format": "{id}",
-		"all-outputs": true,
-		"disable-scroll": false,
-		"active-only": false,
-	},
-	"hyprland/window": {
-		"format": "{title}",
-	},
+
 	"tray": {
 		"show-passive-items": true,
-		"spacing": 10,
-	},
-	"clock#simpleclock": {
-		"tooltip": false,
-		"format": " {}",
+		"spacing": 10
 	},
 	"clock": {
-		"format": " {:L%a %d %b | %H:%M}",
+		"format": " {:%H:%M}",
+		"format-alt": " {:L%a %d %b}",
 		"calendar": {
 			"format": {
 				"days": "<span weight='normal'>{}</span>",
@@ -68,9 +125,9 @@
 			},
 			"mode": "month",
 			"mode-mon-col": 1,
-			"on-scroll": 1,
+			"on-scroll": 1
 		},
-		"tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
+		"tooltip-format": "<span color='#cdd6f4' font='AtkynsonMono NFM 16'><tt><small>{calendar}</small></tt></span>",
 	},
 	"cpu": {
 		"format": " {usage}%",
@@ -79,7 +136,7 @@
 	},
 	"memory": {
 		"format": " {used:0.1f}Gi",
-		"interval": 5
+		"interval": 2
 	},
 	"battery": {
 		"format": "{icon} {capacity}%",
@@ -152,4 +209,5 @@
 		"return-type": "json",
 		"tooltip": false,
 	},
+	
 }
