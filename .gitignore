@@ -1,2 +1,4 @@
 files/.config/zsh/plugins/*
 files/.config/zsh/.zcompdump
+
+.qmlls.ini
