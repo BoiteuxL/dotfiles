@@ -8,6 +8,10 @@ swaync
 waybar
 quickshell
 
+bluetui
+cmatrix-git
+yazi
+
 ttf-font-awesome
 otf-geist-mono-nerd
 otf-atkinsonhyperlegiblemono-nerd
@@ -29,5 +33,7 @@ pipepwire-jack
 wireplumber
 
 spotify
-webcord
+vesktop
 neovim
+code
+libreoffice-fresh

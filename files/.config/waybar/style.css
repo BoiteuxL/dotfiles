@@ -108,6 +108,8 @@ window#waybar {
 
 #workspaces {
     font-family: "AtkynsonMono NFM";
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -136,7 +138,9 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-    color: @peach
+    color: @peach;
+   animation: blink 1s linear infinite;
+   animation-fill-mode: both;
 }
 
 #custom-notification {
@@ -159,8 +163,27 @@ window#waybar {
 #pulseaudio {
     color: @yellow
 }
+#pulseaudio.muted {
+    color: @subtext0;
+}
 
 #battery {
+    transition: all 0.1s ease;
+    color: @text
+}
+
+#battery.warning {
+    color: @peach;
+}
+
+#battery.critical {
+    color: @red;
+   animation: blink 1.5s linear infinite;
+   animation-fill-mode: both;
+}
+
+#battery.charging, #battery.charged {
+    color: @green;
 }
 
 /* --- Optional: Common logic (e.g., adding margins between modules) --- */
@@ -168,3 +191,9 @@ window#waybar {
 .modules-center > widget,
 .modules-right > widget {
 }
+
+@keyframes blink {
+    0% { color: @base }
+    50% {color: @red}
+   100% { color: @base }
+   }
