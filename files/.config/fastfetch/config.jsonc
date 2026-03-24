@@ -1,154 +1,71 @@
 {
 	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 	"logo": {
-		"type": "builtin",
-		"height": 15,
-		"width": 30,
-		"padding": {
-			"top": 5,
-			"left": 3
-		}
+		"type": "small"
+	},
+	"display": {
+		"stat": false,
+		"size": {
+			"binaryPrefix": "jedec"
+		},
+		"separator": " "
 	},
 	"modules": [
-		"break",
-		"title",
 		{
 			"type": "custom",
-			"format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+			"key": "{#38;5;153}╭────────────╮"
 		},
 		{
-			"type": "chassis",
-			"key": " Device",
-			"keyColor": "green"
+			"key": "{#38;5;153}│ {#38;5;1}󰣇  Distro{#keys}{#38;5;153}  │",
+			"type": "os"
 		},
 		{
-			"type": "battery",
-			"key": " ├󰂄 Battery",
-			"keyColor": "green",
-			"format": "{percentage} ({time})"
+			"key": "{#38;5;153}│ {#38;5;2}{icon}  Kernel{#keys}{#38;5;153}  │",
+			"type": "kernel"
 		},
 		{
-			"type": "cpu",
-			"key": " ├ CPU",
-			"keyColor": "green",
-			"format": "{name} ({cores-physical}C/{cores-logical}T) @ {freq-max}"
+			"key": "{#38;5;153}│ {#38;5;3}  Shell{#keys}{#38;5;153}   │",
+			"type": "shell"
 		},
 		{
-			"type": "gpu",
-			"key": " ├󰢮 GPU",
-			"keyColor": "green"
-		},
-		{
-			"type": "disk",
-			"key": " ├ Disk",
-			"keyColor": "green",
-			"format": "{name} ({size-used} / {size-total})"
-		},
-		{
+			"key": "{#38;5;153}│ {#38;5;4}  Memory{#keys}{#38;5;153}  │",
 			"type": "memory",
-			"key": " ├ RAM",
-			"keyColor": "green",
-			"format": "{used} / {total} ({percentage})"
+			"format": "{1} | {2}"
 		},
 		{
-			"type": "swap",
-			"key": " └󰿡 Swap",
-			"keyColor": "green",
-			"format": "{used} / {total} ({percentage})"
+			"key": "{#38;5;153}│ {#38;5;5}󰉉  Storage{#keys}{#38;5;153} │",
+			"type": "disk",
+			"format": "{1} | {2}"
 		},
 		{
-			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
+			"key": "{#38;5;153}│ {#38;5;6}{icon}  Display {#keys}{#38;5;153}│",
+			"type": "display",
+			"format": "1920x1200, {refresh-rate}Hz"
 		},
-		"break",
+		//{
+		//"key": "{#38;5;1153}󰏖   Packs {#keys}{#38;5;11537}  │",
+		//"type": "packages"
+		//},
 		{
-			"type": "custom",
-			"format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
-		},
-		{
-			"type": "os",
-			"key": " OS",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "kernel",
-			"key": "  ├ Kernel",
-			"keyColor": "yellow"
+			"key": "{#38;5;153}│ {#38;5;3}{icon}  Uptime {#keys}{#38;5;153} │",
+			"type": "uptime"
 		},
 		{
-			"type": "bootmgr",
-			"key": "  ├󰉺 Boot Manager",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "packages",
-			"key": "  ├ Packages",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "shell",
-			"key": "  └ Shell",
-			"keyColor": "yellow"
-		},
-		"break",
-		{
-			"type": "de",
-			"key": " DE",
-			"keyColor": "blue"
-		},
-		{
-			"type": "lm",
-			"key": "  ├ DM",
-			"keyColor": "blue"
-		},
-		{
-			"type": "wm",
-			"key": "  ├ WM",
-			"keyColor": "blue"
-		},
-		{
-			"type": "wmtheme",
-			"key": "  ├󰉼 Theme",
-			"keyColor": "blue"
-		},
-		{
-			"type": "terminal",
-			"key": "  └ Terminal",
-			"keyColor": "blue"
-		},
-		{
-			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
-		},
-		"break",
-		{
-			"type": "custom",
-			"format": "\u001b[90m┌────────────────────────Misc────────────────────────┐"
-		},
-		{
+			"key": "{#38;5;153}│ {#38;5;4}  OS age {#keys}{#38;5;153} │",
 			"type": "command",
-			"key": "  OS Age ",
-			"keyColor": "magenta",
-			"text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-		},
-		{
-			"type": "uptime",
-			"key": "  Uptime ",
-			"keyColor": "magenta"
-		},
-		{
-			"type": "datetime",
-			"key": "  DateTime ",
-			"keyColor": "magenta"
+			"text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
 		},
 		{
 			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
+			"key": "{#38;5;153}├────────────┤"
 		},
 		{
-			"type": "colors",
-			"paddingLeft": 2,
-			"symbol": "circle"
+			"key": "{#38;5;153}│ {#38;5;7}  Colors {#38;5;153} │ {#38;5;0} {#38;5;1} {#38;5;2} {#38;5;3} {#38;5;4} {#38;5;5} {#38;5;6} {#38;5;7} ",
+			"type": "custom"
+		},
+		{
+			"type": "custom",
+			"key": "{#38;5;153}╰────────────╯"
 		}
 	]
 }
