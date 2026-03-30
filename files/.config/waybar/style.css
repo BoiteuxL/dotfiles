@@ -1,36 +1,4 @@
-@define-color base   #1e1e2e;
-@define-color mantle #181825;
-@define-color crust  #11111b;
-
-@define-color text     #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-
-@define-color blue      #89b4fa;
-@define-color lavender  #b4befe;
-@define-color sapphire  #74c7ec;
-@define-color sky       #89dceb;
-@define-color teal      #94e2d5;
-@define-color green     #a6e3a1;
-@define-color yellow    #f9e2af;
-@define-color peach     #fab387;
-@define-color maroon    #eba0ac;
-@define-color red       #f38ba8;
-@define-color mauve     #cba6f7;
-@define-color pink      #f5c2e7;
-@define-color flamingo  #f2cdcd;
-@define-color rosewater #f5e0dc;
-
-
-
+@import "colors.css";
 
 * {
     min-height: 0;
@@ -55,8 +23,8 @@
 #bluetooth, 
 #pulseaudio, 
 #battery {
-    background-color: @base;
-    color: @text;
+    background-color: @background;
+    color: @on_background;
     border-radius: 8px;
     padding: 0 12px;
     margin: 4px 4px;
@@ -74,18 +42,18 @@ window#waybar {
 /* --- Left Modules --- */
 #custom-power {
 
-    color: @red;
+    color: @primary;
 }
 
 #clock {
-    color: @pink;
+    color: @primary;
 }
 
 #mpris {
     color: @green;
 }
 #mpris.paused {
-    color: @subtext0;
+    color: @red;
 }
 
 /* --- Center Modules --- */
@@ -95,7 +63,7 @@ window#waybar {
     font-size: 24px;
 }
 #power-profiles-daemon.performance {
-    color: @peach
+    color: @red
 }
 #power-profiles-daemon.balanced {
     color: @blue
@@ -115,30 +83,29 @@ window#waybar {
 
 #workspaces button {
     transition: all 0.1s ease;
-    color: @lavender;
+    border-radius: 8px;
+    color: @primary;
 }
 
 
 #workspaces button:hover {
-    background: @surface0;
-    border: 1px solid @surface0;
+    background: @surface_container;
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
 #workspaces button.active {
-    background-color: @lavender;
-    color: @crust;
+    background-color: @primary;
+    color: @on_primary;
 }
 #workspaces button.active:hover {
-    background: @lavender;
-    border: 1px solid @lavender;
+    background: @primary;
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
 #workspaces button.urgent {
-    color: @peach;
+    color: @tertiary;
    animation: blink 1s linear infinite;
    animation-fill-mode: both;
 }
@@ -151,12 +118,12 @@ window#waybar {
 }
 
 #cpu, #memory {
-    color: @mauve;
+    color: @green;
 }
 
 
 #network, #bluetooth {
-    color: @blue
+    color: @yellow
 }
 
 
@@ -164,16 +131,16 @@ window#waybar {
     color: @yellow
 }
 #pulseaudio.muted {
-    color: @subtext0;
+    color: @red;
 }
 
 #battery {
     transition: all 0.1s ease;
-    color: @text
+    color: @green
 }
 
 #battery.warning {
-    color: @peach;
+    color: @orange;
 }
 
 #battery.critical {

@@ -39,11 +39,11 @@
 
 		"format": "{icon} {id}",
 		"format-icons": {
-			"1": "",
-			"2": "",
+			"1": "",
+			"2": "󰖟",
 			"3": "",
-			"4": "",
-			"5": "",
+			"4": "󰟶",
+			"5": "",
 			"default": ""
 		},
 		"persistent-workspaces": {
@@ -87,7 +87,7 @@
 		"format-wifi": "{icon}",
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
 		"format-ethernet": "󰀂",
-		"format-alt": "󱛇",
+		//"format-alt": "󱛇",
 		"format-disconnected": "󰖪",
 		"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
 		"tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
