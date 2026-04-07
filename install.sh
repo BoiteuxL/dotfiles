@@ -11,3 +11,7 @@ cd files
 echo "Linking dotfiles"
 stow . -t $HOME --verbose
 ln -sf "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
+
+echo "Installing Ambxst..."
+curl -L get.axeni.de/ambxst | sh
+ambxst install hyprland

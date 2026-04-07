@@ -1,14 +1,7 @@
-hyprland
-hypridle
-awww-bin
-rofi
-swaync
-waybar
-quickshell
-
 bluetui
 cmatrix-git
 yazi
+thunar
 
 ttf-font-awesome
 otf-geist-mono-nerd
@@ -19,6 +12,7 @@ ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 
+hyprland
 qt5-wayland
 qt6-wayland
 wl-clipboard
