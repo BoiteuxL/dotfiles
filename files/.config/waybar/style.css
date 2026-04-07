@@ -118,7 +118,7 @@ window#waybar {
 }
 
 #cpu, #memory {
-    color: @green;
+    color: @magenta;
 }
 
 
@@ -160,7 +160,7 @@ window#waybar {
 }
 
 @keyframes blink {
-    0% { color: @base }
+    0% { color: @background }
     50% {color: @red}
-   100% { color: @base }
+   100% { color: @background }
    }

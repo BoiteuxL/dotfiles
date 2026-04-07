@@ -11,7 +11,7 @@
 	"output": ["eDP-1", "DP-1"],
 	
 	"modules-left": [
-		"custom/power",
+//		"custom/power",
 		"clock",
 		"mpris"
 	],
