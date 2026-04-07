@@ -1,7 +1,5 @@
 hyprland
-hyprlock
 hypridle
-wlogout
 awww-bin
 rofi
 swaync
@@ -33,7 +31,7 @@ pipepwire-jack
 wireplumber
 
 spotify
-vesktop
+vesktop-bin
 neovim
 code
 libreoffice-fresh
